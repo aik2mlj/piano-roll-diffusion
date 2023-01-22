@@ -1,0 +1,60 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+---
+<h1>Piano-roll Diffusion</h1>
+
+<h2>Generation</h2>
+
+<style>
+    midi-player {
+        display: block;
+        width: inherit;
+        margin: 4px;
+        margin-bottom: 0;
+    }
+</style>
+
+<section id="section3">
+    <midi-player src="/media/uncond_pop909_0.mid" sound-font visualizer="#Vis_uncond"> </midi-player>
+    <midi-player src="/media/uncond_pop909_1.mid" sound-font visualizer="#Vis_uncond"> </midi-player>
+    <midi-player src="/media/uncond_pop909_2.mid" sound-font visualizer="#Vis_uncond"> </midi-player>
+    <midi-player src="/media/uncond_pop909_3.mid" sound-font visualizer="#Vis_uncond"> </midi-player>
+
+    <midi-visualizer type="piano-roll" id="Vis_uncond"> </midi-visualizer>
+</section>
+
+<h2>Internal Control (Inpainting)</h2>
+
+<h3>Inpaint accompaniment given melody</h3>
+
+The sampling length is 8 bars (16s). Therefore each 8-bar segment may have different texture and chord progression.
+
+<section>
+    Melody:
+    <midi-player src="/media/uncond_inp_below_canon_mld.mid" sound-font visualizer="#Vis_inp_below_mld"> </midi-player>
+
+    <midi-visualizer src="/media/uncond_inp_below_canon_mld.mid" type="piano-roll" id="Vis_inp_below_mld">
+    </midi-visualizer>
+
+    Inpainted result:
+
+    <midi-player src="/media/uncond_inp_below_canon_0.mid" sound-font visualizer="#Vis_inp_below"> </midi-player>
+    <midi-player src="/media/uncond_inp_below_canon_1.mid" sound-font visualizer="#Vis_inp_below"> </midi-player>
+    <midi-visualizer type="piano-roll" id="Vis_inp_below"> </midi-visualizer>
+
+    Melody:
+    <midi-player src="/media/uncond_inp_below_ode_mld.mid" sound-font visualizer="#Vis_inp_below_mld_1"> </midi-player>
+    <midi-visualizer src="/media/uncond_inp_below_ode_mld.mid" type="piano-roll" id="Vis_inp_below_mld_1">
+    </midi-visualizer>
+
+    Inpainted result:
+    <midi-player src="/media/uncond_inp_below_ode_0.mid" sound-font visualizer="#Vis_inp_below_1"> </midi-player>
+    <midi-player src="/media/uncond_inp_below_ode_1.mid" sound-font visualizer="#Vis_inp_below_1"> </midi-player>
+    <midi-visualizer type="piano-roll" id="Vis_inp_below_1"> </midi-visualizer>
+</section>
+
+<script
+    src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
